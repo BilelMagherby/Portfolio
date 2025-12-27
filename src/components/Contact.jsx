@@ -69,11 +69,11 @@ const Contact = ({ data }) => {
                         <div className="form-content">
                             <div className="form-group">
                                 <label>{data.ui.name}</label>
-                                <input type="text" placeholder="John Doe" />
+                                <input type="text" placeholder="Bilel Magherby" />
                             </div>
                             <div className="form-group">
                                 <label>Email</label>
-                                <input type="email" placeholder="john@example.com" />
+                                <input type="email" placeholder="bilelmaghebry@gmail.com" />
                             </div>
                             <div className="form-group">
                                 <label>{data.ui.message}</label>
