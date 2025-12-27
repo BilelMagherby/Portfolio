@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Send, Linkedin, Github } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 
 const Contact = ({ data }) => {
     return (
@@ -13,7 +13,7 @@ const Contact = ({ data }) => {
                     viewport={{ once: true }}
                     className="contact-header text-center"
                 >
-                    <h2 className="section-title">
+                    <h2 className="section-title special-contact-title">
                         {data.ui.letsWork}
                     </h2>
                     <p className="section-subtitle">
@@ -21,40 +21,42 @@ const Contact = ({ data }) => {
                     </p>
                 </motion.div>
 
-                <div className="contact-grid">
+                <div className="contact-container-centered">
                     {/* Contact Info */}
-                    <div className="contact-info">
-                        <div className="contact-card">
-                            <div className="contact-row">
-                                <div className="contact-icon-box bg-cyan">
-                                    <Mail size={24} />
+                    <div className="contact-info-centered">
+                        <div className="contact-cards-row">
+                            <div className="contact-card">
+                                <div className="contact-row">
+                                    <div className="contact-icon-box bg-cyan">
+                                        <Mail size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="contact-label">Email</h4>
+                                        <p className="contact-value">{data.personalInfo.email}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 className="contact-label">Email</h4>
-                                    <p className="contact-value">{data.personalInfo.email}</p>
-                                </div>
+                                <a href={`mailto:${data.personalInfo.email}`} className="contact-link cyan">
+                                    {data.ui.sendMessage}
+                                </a>
                             </div>
-                            <a href={`mailto:${data.personalInfo.email}`} className="contact-link cyan">
-                                {data.ui.sendMessage}
-                            </a>
+
+                            <div className="contact-card">
+                                <div className="contact-row">
+                                    <div className="contact-icon-box bg-purple">
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <h4 className="contact-label">Phone</h4>
+                                        <p className="contact-value">{data.personalInfo.phone}</p>
+                                    </div>
+                                </div>
+                                <a href={`tel:${data.personalInfo.phone}`} className="contact-link purple">
+                                    Call now
+                                </a>
+                            </div>
                         </div>
 
-                        <div className="contact-card">
-                            <div className="contact-row">
-                                <div className="contact-icon-box bg-purple">
-                                    <Phone size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="contact-label">Phone</h4>
-                                    <p className="contact-value">{data.personalInfo.phone}</p>
-                                </div>
-                            </div>
-                            <a href={`tel:${data.personalInfo.phone}`} className="contact-link purple">
-                                Call now
-                            </a>
-                        </div>
-
-                        <div className="social-buttons">
+                        <div className="social-buttons centered">
                             <a href={data.personalInfo.linkedin} target="_blank" rel="noreferrer" className="social-btn linkedin">
                                 <Linkedin size={20} /> LinkedIn
                             </a>
@@ -63,30 +65,6 @@ const Contact = ({ data }) => {
                             </a>
                         </div>
                     </div>
-
-                    {/* Form */}
-                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-                        <div className="form-content">
-                            <div className="form-group">
-                                <label>{data.ui.name}</label>
-                                <input type="text" placeholder="Bilel Magherby" />
-                            </div>
-                            <div className="form-group">
-                                <label>Email</label>
-                                <input type="email" placeholder="bilelmaghebry@gmail.com" />
-                            </div>
-                            <div className="form-group">
-                                <label>{data.ui.message}</label>
-                                <textarea rows={4} placeholder="..."></textarea>
-                            </div>
-                            <button className="submit-btn">
-                                {data.ui.sendMessage} <Send size={18} />
-                            </button>
-                        </div>
-
-                        {/* Form Background Decoration */}
-                        <div className="form-deco"></div>
-                    </form>
                 </div>
             </div>
         </section>
